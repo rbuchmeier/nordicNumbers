@@ -1,9 +1,9 @@
-var express = require('express');
 var path = require('path');
+var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('Hello Josh!');
 })
 
 app.set('port', 3000);
