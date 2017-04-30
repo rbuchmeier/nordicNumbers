@@ -15,11 +15,21 @@ router.get('/', function(req, res) {
     res.json({message: 'hoorway! welcome to our api!'});
 });
 
+router.route('/races')
+.get(function(req, res) {
+    Race.find(function (err, races) {
+        if (err) {
+            res.sent(err);
+        }
+        res.json(races);
+    });
+});
+
 app.use('/api', router);
 
 app.set('port', 3000);
 
-mongoose.connect('mongodb://localhost/myapp')
+mongoose.connect('mongodb://localhost/nndb');
 
 app.use(express.static(path.join(__dirname, 'src')));
 
