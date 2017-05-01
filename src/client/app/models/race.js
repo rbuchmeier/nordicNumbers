@@ -1,8 +1,25 @@
 const mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 const RacerSchema = new Schema({
-    time: {
+    first: {
         type: String,
+        required: true
+    },
+    last: {
+        type: String,
+        required: true
+    },
+    team: {
+        type: String
+    },
+    start: {
+        type: Number
+    },
+    finish: {
+        type: Number
+    },
+    time: {
+        type: Number,
         required: true
     },
     grade: {
@@ -16,12 +33,15 @@ var RaceSchema = new Schema({
         required: true
     },
     raceDate: {
-        type: Number,
+        type: Date,
         required: true
     },
     gender: {
         type: String,
         required: true
+    },
+    skill: {
+        type: String
     },
     distance: {
         type: Number
