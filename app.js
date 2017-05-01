@@ -24,6 +24,15 @@ router.route('/races')
         res.json(races);
     });
 });
+router.route('/foobar')
+.get(function(req, res) {
+    Race.find({gender: req.query.gender }, function (err, races) {
+        if (err) {
+            res.sent(err);
+        }
+        res.json(races);
+    });
+});
 
 app.use('/api', router);
 
