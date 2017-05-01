@@ -17,21 +17,21 @@ router.get('/', function(req, res) {
 
 router.route('/races')
 .get(function(req, res) {
-    Race.find(function (err, races) {
-        if (err) {
-            res.sent(err);
-        }
-        res.json(races);
-    });
-});
-router.route('/foobar')
-.get(function(req, res) {
-    Race.find({gender: req.query.gender }, function (err, races) {
-        if (err) {
-            res.sent(err);
-        }
-        res.json(races);
-    });
+    if (req.query.gender) {
+        Race.find({gender: req.query.gender }, function (err, races) {
+            if (err) {
+                res.sent(err);
+            }
+            res.json(races);
+        });
+    } else {
+        Race.find(function (err, races) {
+            if (err) {
+                res.sent(err);
+            }
+            res.json(races);
+        });
+    }
 });
 
 app.use('/api', router);
