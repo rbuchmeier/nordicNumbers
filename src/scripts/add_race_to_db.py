@@ -4,18 +4,17 @@ import re
 def get_file(filename):
     pass
 
+def get_filename_details(filename):
+    filename = filename.split('.')[0]
+    return filename.split('_')
+
 def get_race_info(filename):
-    details = filename.split('_')
+    details = get_filename_details(filename)
     race_details = {}
     # Location
     for location in LOCATIONS:
         if location in details:
             race_details['location'] = location
-    # School Level
-    if 'ms' in details:
-        race_details['level'] = 'ms'
-    elif 'hs' in details:
-        race_details['level'] = 'hs'
     # Distance
     dist_re = re.compile('[0-9]+k')
     dist_matches = filter(dist_re.match, details)
@@ -26,18 +25,28 @@ def get_race_info(filename):
     dist_matches = filter(dist_re.match, details)
     if len(dist_matches) > 0:
         race_details['date'] = dist_matches.group()
+    # School Level
+    race_details = get_details_for(race_details, 'level', ['ms', 'hs'], details)
     # Gender
-    if 'boys' in details:
-        race_details['gender'] = 'Boys'
-    elif 'girls' in details:
-        race_details['gender'] = 'Girls'
-    # Skill
-    if 'skate' in details:
-        race_details['skill'] = 'Skate'
-    elif 'classic' in details:
-        race_details['skill'] = 'Classic'
+    race_details = get_details_for(race_details, 'gender', ['Boys', 'Girls'], details)
+    # Skill type
+    race_details = get_details_for(race_details, 'skill', ['Skate', 'Classic'], details)
+
+    race_details = get_missing_info(race_details)
 
     return race_details
+
+def get_details_for(race_details, detail_type, options_list, details):
+    for option in options_list:
+        if option.lower() in details:
+            race_details[detail_type] = option
+    return race_details
+
+def get_missing_info(race_details):
+    pass
+
+def get_headers(f):
+    pass
 
 def parse_file(race_file):
     pass
