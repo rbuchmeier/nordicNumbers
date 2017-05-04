@@ -1,11 +1,7 @@
 import csv
 from utils import LOCATIONS
+from utils import get_file
 REQUIRED_FIELDS = ['location', 'date', 'gender']
-
-def get_file(filename):
-    with open(filename) as f:
-        content = f.readlines()
-    return [data.strip() for data in content]
 
 def write_validated_race(data, details, headers_to_avoid):
     if should_split_genders():
