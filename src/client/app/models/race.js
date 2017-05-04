@@ -13,10 +13,10 @@ const RacerSchema = new Schema({
         type: String
     },
     start: {
-        type: Number
+        type: String
     },
     finish: {
-        type: Number
+        type: String
     },
     time: {
         type: Number,
@@ -44,7 +44,7 @@ var RaceSchema = new Schema({
         type: String
     },
     distance: {
-        type: Number
+        type: String
     },
     racers: [RacerSchema]
 })
