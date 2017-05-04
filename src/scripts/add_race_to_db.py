@@ -4,6 +4,8 @@ from utils import get_file
 import re
 import csv
 
+import pymongo
+
 def get_filename_details(filename):
     filename = filename.split('.')[0]
     return filename.split('_')
@@ -50,9 +52,13 @@ def get_skier_info(skier, headers):
     return result
 
 def write_race_to_db(race_info, race_results):
-    # Use Mongothon?
     # Should check to see if race already exists
-    pass
+    client = pymongo.MongoClient()
+    db = client.nndb
+    race = race_info
+    race['skiers'] = [result for result in race_results]
+    db.races.posts.insert_one(race)
+    
 
 def main():
     # Parse data
@@ -61,12 +67,10 @@ def main():
     # Enter information into db
     filename = input('Please enter a filename: ')
     data = get_file(filename)
-    race_info = get_race_info(filename)
-    race_info['skiers'] = []
+    race = get_race_info(filename)
     headers = get_headers(data)
-    for skier in data:
-        race_info['skiers'].append(get_skier_info(skier, headers))
-    write_race_to_db(race_info, race_results)
+    race['skiers'] = [get_skier_info(skier, headers) for skier in data]
+    write_race_to_db(race)
 
 if __name__ == '__main__':
     main()
