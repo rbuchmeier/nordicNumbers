@@ -4,8 +4,9 @@ from validate_race_file import get_location
 from validate_race_file import get_skill
 from validate_race_file import get_distance
 from validate_race_file import get_date
-# from validate_race_file import remove_useless_columns
+from validate_race_file import remove_useless_columns
 from validate_race_file import get_useless_header_indexes
+from validate_race_file import fix_header
 
 import unittest
 from mock import Mock
@@ -53,10 +54,10 @@ class ValidateRaceTests(unittest.TestCase):
                      ['Ryan', 'Bucky', 1, '11:50'],
                      ['BrenN', 'Azure', 2, '9:00']]
         expected = [2]
-        actual = get_useless_header_indexes(test_data)
+        accepted_fields = ['first', 'last', 'time']
+        actual = get_useless_header_indexes(test_data, accepted_fields)
         self.assertEqual(expected, actual)
 
-    @unittest.skip('finish function, then unskip')
     def test_remove_useless_columns(self):
         test_data = [['first', 'last', 'foo', 'time'],
                      ['Ryan', 'Bucky', 1, '11:50'],
@@ -67,7 +68,6 @@ class ValidateRaceTests(unittest.TestCase):
         actual = remove_useless_columns(test_data)
         self.assertEqual(expected, actual)
 
-    @unittest.skip('finish function, then unskip')
     def test_remove_useless_columns_with_gender(self):
         test_data = [['first', 'last', 'foo', 'time', 'gender'],
                      ['Ryan', 'Bucky', 1, '11:50', 'Boys'],
@@ -78,6 +78,29 @@ class ValidateRaceTests(unittest.TestCase):
         actual = remove_useless_columns(test_data)
         self.assertEqual(expected, actual)
 
+    def test_fix_header(self):
+        header = 'first name'
+        expected = 'first'
+        actual = fix_header(header)
+        self.assertEqual(expected, actual)
+        header = 'Last'
+        expected = 'last'
+        actual = fix_header(header)
+        self.assertEqual(expected, actual)
+        header = 'FooBar 01G5'
+        expected = 'FooBar 01G5' 
+        actual = fix_header(header)
+        self.assertEqual(expected, actual)
+
+    def test_integrated_remove_useless_columns(self):
+        test_data = [['First', 'last name', 'foo', 'time', 'gender'],
+                     ['Ryan', 'Bucky', 1, '11:50', 'Boys'],
+                     ['BrenN', 'Azure', 2, '9:00', 'M']]
+        expected = [['first', 'last', 'time', 'gender'],
+                     ['Ryan', 'Bucky', '11:50', 'Boys'],
+                     ['BrenN', 'Azure', '9:00', 'M']]
+        actual = remove_useless_columns(test_data)
+        self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()

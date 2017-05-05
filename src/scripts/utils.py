@@ -1,3 +1,4 @@
+import csv
 LOCATIONS = ['casper', 'laramie', 'cody', 'jackson', 'lander', 'pinedale']
 
 def parse_time_string_to_number_seconds(str_time):
@@ -12,6 +13,9 @@ def parse_time_string_to_number_seconds(str_time):
     return seconds
 
 def get_file(filename):
+    data = []
     with open(filename) as f:
-        content = f.readlines()
-    return [data.strip() for data in content]
+        reader = csv.reader(f)
+        for row in reader:
+            data.append(row)
+    return data

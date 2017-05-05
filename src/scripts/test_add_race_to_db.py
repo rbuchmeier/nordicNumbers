@@ -1,6 +1,3 @@
-from add_race_to_db import get_file
-from add_race_to_db import get_headers
-from add_race_to_db import parse_file
 from add_race_to_db import get_skier_info
 from add_race_to_db import get_race_info
 from add_race_to_db import write_race_to_db

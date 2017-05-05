@@ -27,9 +27,9 @@ def get_race_info(filename):
 
 def get_details_with_re(race_details, detail_type, regexp, details):
     dist_re = re.compile(regexp)
-    dist_matches = filter(dist_re.match, details)
-    if len(dist_matches) > 0:
-        race_details[detail_type] = dist_matches[0]
+    for detail in details:
+        if dist_re.match(detail) != None:
+            race_details[detail_type] = dist_re.match(detail).group()
     return race_details
     
 
@@ -40,24 +40,19 @@ def get_details_for(race_details, detail_type, options_list, details):
     return race_details
 
 
-def get_headers(data):
-    return data.pop(0)
-
 def get_skier_info(skier, headers):
     result = {}
     for i, header in enumerate(headers):
-        if header == 'Time':
+        if header.lower() == 'time':
             skier[i] = parse_time_string_to_number_seconds(skier[i])
         result[header] = skier[i]
     return result
 
-def write_race_to_db(race_info, race_results):
+def write_race_to_db(race):
     # Should check to see if race already exists
     client = pymongo.MongoClient()
     db = client.nndb
-    race = race_info
-    race['skiers'] = [result for result in race_results]
-    db.races.posts.insert_one(race)
+    db.races.insert_one(race)
     
 
 def main():
@@ -68,8 +63,8 @@ def main():
     filename = input('Please enter a filename: ')
     data = get_file(filename)
     race = get_race_info(filename)
-    headers = get_headers(data)
-    race['skiers'] = [get_skier_info(skier, headers) for skier in data]
+    headers = data.pop(0)
+    race['racers'] = [get_skier_info(skier, headers) for skier in data]
     write_race_to_db(race)
 
 if __name__ == '__main__':
