@@ -4,7 +4,7 @@ class FilterComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='filter-component'>
         <p>Race Filter</p>
       </div>
     );

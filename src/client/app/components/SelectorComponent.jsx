@@ -3,7 +3,7 @@ import React from 'react';
 class SelectorComponent extends React.Component {
   render() {
     return (
-      <div>
+      <div id='selector-component'>
         <p>Race Selector</p>
       </div>
     );
