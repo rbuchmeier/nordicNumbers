@@ -84,8 +84,8 @@ def fix_header(header):
         'last': ['last', 'last name'],
         'team': ['team'],
         'gender': ['sex', 'gender'],
-        'start': ['start', 'start time'],
-        'finish': ['finish', 'finish time'],
+        'start': ['start', 'start time', 'run1 start'],
+        'finish': ['finish', 'finish time', 'run1 finish'],
         'time': ['time', 'total time'],
         'grade': ['grade', 'class']
     }
