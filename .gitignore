@@ -2,7 +2,8 @@ node_modules
 start_server.sh
 stderr.txt
 stdout.txt
-/src/client/public
-/src/client/public/
-/src/client/public/*
+src/client/public
+src/client/public/
+src/client/public/*
 *.pyc
+nordicNumbers/
