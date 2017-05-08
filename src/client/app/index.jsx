@@ -1,13 +1,18 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx'
+import FilterComponent from './components/FilterComponent.jsx'
+import SelectorComponent from './components/SelectorComponent.jsx'
+import ViewComponent from './components/ViewComponent.jsx'
 
 class App extends React.Component {
   render () {
     return (
 	<div>
-	  <p> Hello React!</p>
-	  <AwesomeComponent />
+      <div className='jumbotron'>
+        <FilterComponent />
+        <SelectorComponent />
+        <ViewComponent />
+      </div>
 	</div>
     );
   }
