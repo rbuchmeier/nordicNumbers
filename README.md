@@ -24,7 +24,7 @@ We are developers, making dreams come true is what we do. Here are some of ours:
 
 ## The Stack
 ### Front End
-- React (Framework(/library)
+- React (Framework(/library))
 - Redux (or some State-manager)
 - d3.js (eventually, for charts)
 - Bootstrap (*good* css is hard...)
@@ -35,7 +35,6 @@ We are developers, making dreams come true is what we do. Here are some of ours:
 - MongoDB (Persistant Storage)
 - Webpack (bundling)
 - Mocha/Jasmine (Testing)
-- Yark (Package Management)
 - Express (Routing)
 
 ### DevOps/DataScience
