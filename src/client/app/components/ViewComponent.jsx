@@ -1,14 +1,37 @@
 import React from 'react';
+var axios = require('axios');
+import RacerComponent from './RacerComponent.jsx';
 
-class ViewComponent extends React.Component {
-  render() {
+var ViewComponent = React.createClass({
+  getInitialState: function() {
+    return {
+        races: [],
+        racers: []
+    }
+  },
+  componentDidMount: function() {
+    var _this = this;
+    this.serverRequest = axios.get('http://192.81.218.23:3000/api/races')
+        .then(function(result) {
+            _this.setState({
+                races: result.data[0],
+                racers: result.data[0].racers
+            });
+        })
+  },
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+  render: function() {
     return (
       <div id='view-component'>
-        <p>Race View</p>
+        <h3>Race View</h3>
+        <p>location: {this.state.races.location}</p>
+        <p>skill: {this.state.races.skill}</p>
+        <RacerComponent racers={this.state.racers}/>
       </div>
     );
   }
-
-}
+});
 
 export default ViewComponent;
