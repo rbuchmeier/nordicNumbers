@@ -1,4 +1,5 @@
 import React from 'react';
+var moment = require('moment');
 
 var RacerComponent = React.createClass({
   render: function() {
@@ -10,7 +11,10 @@ var RacerComponent = React.createClass({
             {
                 this.props.racers.map(function(racer) {
                     return (
-                        <li key={racer.time}>{racer.first} {racer.last}</li>
+                        <li key={racer.time}>
+                            {racer.first} {racer.last} ---
+                            {moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')}
+                        </li>
                     )
                 })
             }
