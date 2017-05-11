@@ -12,8 +12,9 @@ var RacerComponent = React.createClass({
                 this.props.racers.map(function(racer) {
                     return (
                         <li key={racer.time}>
-                            {racer.first} {racer.last} ---
-                            {moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')}
+                            {racer.first} {racer.last} ({racer.grade}) ---&nbsp;
+                            {moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')} |&nbsp;
+                            {racer.team}
                         </li>
                     )
                 })
