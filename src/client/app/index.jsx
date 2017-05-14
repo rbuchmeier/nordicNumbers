@@ -9,7 +9,9 @@ import ViewComponent from './components/ViewComponent.jsx'
 var App = React.createClass({
   getInitialState: function() {
     return {
-        races: {racers: []}
+        race: {racers: []},
+        races: [],
+        racers: []
     }
   },
   componentDidMount: function() {
@@ -17,7 +19,9 @@ var App = React.createClass({
     this.serverRequest = axios.get('http://192.81.218.23:3000/api/races')
         .then(function(result) {
             _this.setState({
-                races: result.data[0]
+                races: result.data,
+                race: result.data[0],
+                racers: result.data[0].racers
             });
         })
   },
@@ -25,13 +29,12 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
   render: function() {
-    console.log(this.state.races);
     return (
 	<div>
       <div className='jumbotron'>
         <FilterComponent />
-        <SelectorComponent />
-        <ViewComponent races={this.state.races}/>
+        <SelectorComponent races={this.state.races} />
+        <ViewComponent race={this.state.race} />
       </div>
 	</div>
     );

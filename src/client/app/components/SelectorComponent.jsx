@@ -6,8 +6,15 @@ class SelectorComponent extends React.Component {
       <div id='selector-component'>
         <h3>Race Selector</h3>
         <form>
-           <input type="radio" name="race"/>Casper 2017<br/>
-           <input type="radio" name="race"/>Laramie 2017
+            {this.props.races.map(function(race) {
+                return (
+                    <div>
+                        <label>
+                            <input type="radio" name="races" key={race._id}/>{race.raceDate} {race.location} {race.gender} {race.skill} {race.distance}
+                        </label>
+                    </div>
+                )
+            })}
         </form>
       </div>
     );

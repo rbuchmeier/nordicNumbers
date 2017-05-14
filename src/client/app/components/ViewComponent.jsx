@@ -4,14 +4,14 @@ var moment = require('moment');
 
 var ViewComponent = React.createClass({
   render: function() {
-    console.log(this.props);
     return (
       <div id='view-component'>
         <h3>Race View</h3>
-        <p>location: {this.props.races.location}</p>
-        <p>skill: {this.props.races.skill}</p>
+        <p>location: {this.props.race.location}</p>
+        <p>skill: {this.props.race.skill}</p>
+        <p>ID: {this.props.race._id}</p>
         <ul>
-            {this.props.races.racers.map(function(racer) {
+            {this.props.race.racers.map(function(racer) {
                 return (
                     <li key={racer.first + racer.last + racer.time}>
                         {racer.first} {racer.last} ({racer.grade}) ---&nbsp;
