@@ -11,6 +11,7 @@ var ViewComponent = React.createClass({
         <p>skill: {this.props.race.skill}</p>
         <p>ID: {this.props.race._id}</p>
         <ul>
+            <li key="label"><em>Name (Grade) --- Time | Team</em></li>
             {this.props.race.racers.map(function(racer) {
                 return (
                     <li key={racer.first + racer.last + racer.time}>
