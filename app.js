@@ -15,6 +15,16 @@ router.get('/', function(req, res) {
     res.json({message: 'hoorway! welcome to our api!'});
 });
 
+router.route('/races/:race_id')
+.get(function(req, res) {
+    Race.findById(req.params.race_id, function (err, races) {
+        if (err) {
+            res.sent(err);
+        }
+        res.json(races);
+    });
+});
+
 router.route('/races')
 .get(function(req, res) {
     if (req.query.gender) {
@@ -33,6 +43,7 @@ router.route('/races')
         });
     }
 });
+
 
 app.use('/api', router);
 
