@@ -1,5 +1,4 @@
 import React from 'react';
-var axios = require('axios');
 var moment = require('moment');
 
 var ViewComponent = React.createClass({
