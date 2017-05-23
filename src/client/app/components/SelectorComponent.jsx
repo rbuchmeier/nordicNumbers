@@ -5,7 +5,7 @@ class SelectorComponent extends React.Component {
     handleChange(race_id) {
         this.serverRequest = axios.get('http://192.81.218.23:3000/api/races/' + race_id)
         .then(function(result) {
-            console.log(result.data);
+            this.props.dispatcher.change_race({type:'change_race',payload:result.data});
         });
     }
     render() {

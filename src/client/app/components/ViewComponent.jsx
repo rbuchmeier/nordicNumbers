@@ -4,21 +4,21 @@ var moment = require('moment');
 var ViewComponent = React.createClass({
   render: function() {
     return (
-      <div id='view-component'>
+      <div className='rounded' id='view-component'>
         <h3>Race View</h3>
-<div>
-        <p>location: {this.props.race.location}</p>
-        <p>skill: {this.props.race.skill}</p>
-        <p>ID: {this.props.race._id}</p>
-</div>
-      <div class="row" key={"racers"+this.props.race._id}><em>Name (Grade) --- Time | Team</em></div>
+      <div className="row" key="label"><em>
+            <div className="col-md-3">Name</div>
+            <div className="col-md-3">Grade</div>
+            <div className="col-md-3">Time</div>
+            <div className="col-md-3">Team</div>
+      </em></div>
             {this.props.race.racers.map(function(racer) {
                 return (
-                    <div class="row" key={racer.first + racer.last + racer.time}>
-                   <div class="col-md-3"> {racer.first} {racer.last}</div>
-		   <div class="col-md-3">{racer.grade}</div>
-                   <div class="col-md-3">{moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')}</div>
-                   <div class="col-md-3'>{racer.team}</div>
+                    <div className="row" key={racer.first + racer.last + racer.time}>
+                   <div className="col-md-3"> {racer.first} {racer.last}</div>
+		   <div className="col-md-3">{racer.grade}</div>
+                   <div className="col-md-3">{moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')}</div>
+                   <div className="col-md-3">{racer.team}</div>
                     </div>
                 );
             })}
