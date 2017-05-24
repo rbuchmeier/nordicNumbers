@@ -4,7 +4,7 @@ var moment = require('moment');
 var ViewComponent = React.createClass({
   render: function() {
     return (
-      <div className='rounded' id='view-component'>
+      <div className='rounded col-md-9' id='view-component'>
         <h3>Race View</h3>
       <div className="row" key="label"><em>
             <div className="col-md-3">Name</div>

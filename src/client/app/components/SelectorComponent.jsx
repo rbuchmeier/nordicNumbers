@@ -12,7 +12,7 @@ class SelectorComponent extends React.Component {
     render() {
         var _this = this
             return (
-                    <div id='selector-component'>
+                    <div id='selector-component' className="col-md-3">
                     <h3>Race Selector</h3>
                     <form>
                     {_this.props.races.map(function(race) {
