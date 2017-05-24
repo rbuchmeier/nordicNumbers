@@ -14,8 +14,6 @@ var App = React.createClass({
     var _this = this;
     this.serverRequest = axios.get('http://192.81.218.23:3000/api/races')
         .then(function(result) {
-            console.log(result);
-            console.log(_this.props);
             _this.props.loadRaces({type: 'load_races', payload: result.data});
             _this.props.changeRace({type: 'change_race', payload: result.data[0]});
         })

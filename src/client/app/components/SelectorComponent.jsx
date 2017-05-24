@@ -3,9 +3,10 @@ import axios from 'axios';
 
 class SelectorComponent extends React.Component {
     handleChange(race_id) {
+        var _this = this;
         this.serverRequest = axios.get('http://192.81.218.23:3000/api/races/' + race_id)
         .then(function(result) {
-            this.props.dispatcher.change_race({type:'change_race',payload:result.data});
+            _this.props.changeRace({type:'change_race',payload:result.data});
         });
     }
     render() {
