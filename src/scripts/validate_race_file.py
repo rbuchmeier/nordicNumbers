@@ -96,7 +96,7 @@ def fix_header(header):
 
 def remove_useless_columns(data):
     required_skier_fields = ['first', 'last', 'time']
-    optional_skier_fields = ['team', 'start', 'finish', 'grade']
+    optional_skier_fields = ['team', 'start', 'finish', 'grade', 'gender']
     all_accepted_fields = required_skier_fields + optional_skier_fields
     headers = data[0]
     headers = [fix_header(header) for header in headers]

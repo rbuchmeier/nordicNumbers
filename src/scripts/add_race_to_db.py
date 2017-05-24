@@ -7,6 +7,7 @@ import csv
 import pymongo
 
 def get_filename_details(filename):
+    filename = filename.split('/')[-1]
     filename = filename.split('.')[0]
     return filename.split('_')
 
@@ -44,7 +45,11 @@ def get_skier_info(skier, headers):
     result = {}
     for i, header in enumerate(headers):
         if header.lower() == 'time':
-            skier[i] = parse_time_string_to_number_seconds(skier[i])
+            try:
+                skier[i] = parse_time_string_to_number_seconds(skier[i])
+            except Exception as err:
+                import pdb
+                pdb.set_trace()
         result[header] = skier[i]
     return result
 
