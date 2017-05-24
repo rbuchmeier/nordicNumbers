@@ -25,7 +25,7 @@ var App = React.createClass({
     return (
 	<div>
       <div className='jumbotron'>
-        <FilterComponent />
+        <FilterComponent loadRaces={this.props.loadRaces}/>
         <SelectorComponent races={this.props.races} changeRace={this.props.changeRace}/>
         <ViewComponent race={this.props.race} />
       </div>

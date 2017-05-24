@@ -34,6 +34,13 @@ router.route('/races')
             }
             res.json(races);
         });
+    } else if (req.query.skill) {
+        Race.find({skill: req.query.skill }, function (err, races) {
+            if (err) {
+                res.sent(err);
+            }
+            res.json(races);
+        });
     } else {
         Race.find(function (err, races) {
             if (err) {
