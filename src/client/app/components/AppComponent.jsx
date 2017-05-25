@@ -20,7 +20,9 @@ var App = React.createClass({
     return (
     <div>
       <div className='jumbotron'>
+	 <div className="row">
         <FilterComponent loadRaces={this.props.loadRaces}/>
+	 </div>
 	 <div className="row">
         <SelectorComponent races={this.props.races} changeRace={this.props.changeRace}/>
         <ViewComponent race={this.props.race} />
