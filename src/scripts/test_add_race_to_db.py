@@ -37,8 +37,15 @@ class AddRaceToDbTests(unittest.TestCase):
 
     def test_get_filename_details(self):
         test_filename = 'casper_ms_5k_2017-02-18.csv'
-        expected_output = ['casper', 'ms', '5k', '2017-02-18']
-        actual_output = get_filename_details(test_filename)
+        expected = ['casper', 'ms', '5k', '2017-02-18']
+        actual = get_filename_details(test_filename)
+        self.assertEqual(expected, actual)
+
+    def test_get_filename_details_with_filter(self):
+        test_filename = 'races/casper_ms_5k_2017-02-18.csv'
+        expected = ['casper', 'ms', '5k', '2017-02-18']
+        actual = get_filename_details(test_filename)
+        self.assertEqual(expected, actual)
 
     def test_get_details_with_re_distance(self):
         test_details = {}

@@ -29,7 +29,7 @@ def write_race(data, filename, gender=None):  # TODO: oh dear...the indenting of
                     if i == gender_index:
                         gender_switch = row[i]
                         del row[i]
-                if gender_switch == 'M':
+                if gender_switch in ('M', 'Boys'):
                     boywriter.writerow(row)
                 else:
                     girlwriter.writerow(row)

@@ -45,11 +45,7 @@ def get_skier_info(skier, headers):
     result = {}
     for i, header in enumerate(headers):
         if header.lower() == 'time':
-            try:
-                skier[i] = parse_time_string_to_number_seconds(skier[i])
-            except Exception as err:
-                import pdb
-                pdb.set_trace()
+            skier[i] = parse_time_string_to_number_seconds(skier[i])
         result[header] = skier[i]
     return result
 
