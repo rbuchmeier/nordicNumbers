@@ -1,0 +1,18 @@
+#view-component, #selector-component, #filter-component {
+    //background-color: #79CAEA;
+    background-color: #D4D4D4;
+    border-style: solid;
+    border-color: #4684A9;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 10px;
+}
+#app div.jumbotron {
+    background-color: #79CAEA;
+    //background-color: #D4D4D4;
+    border-style: solid;
+    border-color: #4684A9;
+    border-radius: 25px;
+    margin: 25px;
+    padding: 25px;
+}
