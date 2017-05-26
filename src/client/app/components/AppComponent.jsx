@@ -11,6 +11,7 @@ var App = React.createClass({
         .then(function(result) {
             _this.props.loadRaces({type: 'load_races', payload: result.data});
             _this.props.changeRace({type: 'change_race', payload: result.data[0]});
+            _this.props.changeRace({type: 'sort_time'});
         })
   },
   componentWillUnmount: function() {

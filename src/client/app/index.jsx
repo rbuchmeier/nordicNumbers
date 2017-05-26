@@ -24,6 +24,15 @@ var race_reducer = function(state, action) {
         case 'load_races':
             newState = Object.assign({}, state, {races: action.payload});
             break;
+        case 'sort_time':
+            var results = state.race.racers;
+            results.sort(function (a, b) {
+                return a.time - b.time;
+            });
+            const newRace = Object.assign({}, state.race, {racers: results});
+            console.log(newRace);
+            console.log(state);
+            newState = Object.assign({}, state, {race: newRace});
     }
     return newState;
 }
