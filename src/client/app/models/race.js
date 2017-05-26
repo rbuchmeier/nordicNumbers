@@ -1,6 +1,8 @@
-const mongoose = require('mongoose'), Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const RacerSchema = new Schema({
+mongoose.connect('mongodb://localhost/nndb');
+
+const RacerSchema = new mongoose.Schema({
     first: {
         type: String,
         required: true
@@ -27,7 +29,7 @@ const RacerSchema = new Schema({
     }
 });
 
-var RaceSchema = new Schema({
+const RaceSchema = new mongoose.Schema({
     location: {
         type: String,
         required: true
