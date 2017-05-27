@@ -26,28 +26,19 @@ router.route('/races/:race_id')
 
 router.route('/races')
 .get(function(req, res) {
+    var query = {}
     if (req.query.gender) {
-        Race.find({gender: req.query.gender }, function (err, races) {
-            if (err) {
-                res.sent(err);
-            }
-            res.json(races);
-        });
-    } else if (req.query.skill) {
-        Race.find({skill: req.query.skill }, function (err, races) {
-            if (err) {
-                res.sent(err);
-            }
-            res.json(races);
-        });
-    } else {
-        Race.find(function (err, races) {
-            if (err) {
-                res.sent(err);
-            }
-            res.json(races);
-        });
+        query.gender = req.query.gender;
     }
+    if (req.query.skill) {
+        query.skill = req.query.skill;
+    }
+    Race.find(query, function (err, races) {
+        if (err) {
+            res.sent(err);
+        }
+        res.json(races);
+    });
 });
 
 
