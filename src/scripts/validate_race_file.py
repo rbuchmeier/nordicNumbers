@@ -2,6 +2,7 @@ import csv
 from utils import LOCATIONS
 from utils import get_file
 
+
 def write_validated_race(data, filename):
     
     if 'gender' in data[0]:
@@ -9,8 +10,9 @@ def write_validated_race(data, filename):
     else:
         write_race(data, filename)
 
+
 def write_race(data, filename, gender=None):  # TODO: oh dear...the indenting of hell
-    if gender == None:
+    if gender is None:
         with open('races/' + filename, 'w') as csvfile:
             writer = csv.writer(csvfile)
             for row in data:
@@ -33,7 +35,8 @@ def write_race(data, filename, gender=None):  # TODO: oh dear...the indenting of
                     boywriter.writerow(row)
                 else:
                     girlwriter.writerow(row)
-    
+
+
 def get_new_filename(filename):
     new_filename = ''
     new_filename += get_level(filename)
@@ -44,6 +47,7 @@ def get_new_filename(filename):
     new_filename = new_filename.rstrip('_') + '.csv'
     return new_filename
 
+
 def get_level(filename):
     if 'junior high' in filename.lower() or 'ms' in filename.lower():
         return 'ms_'
@@ -52,6 +56,7 @@ def get_level(filename):
         assert (level.lower() in ['hs', 'ms'])
         return level.lower() + '_'
 
+
 def get_location(filename):
     for location in LOCATIONS:
         if location.lower() in filename.lower():
@@ -59,6 +64,7 @@ def get_location(filename):
     location = input('Where did this take place? (eg casper, lander, etc...)')
     assert(location in LOCATIONS)
     return location.lower() + '_'
+
 
 def get_skill(filename):
     if 'skate' in filename.lower():
@@ -70,13 +76,16 @@ def get_skill(filename):
         assert(skill.lower() in ['skate', 'classic'])
         return skill.lower() + '_'
 
+
 def get_distance(filename):
     distance = input('What distance? (5k, 10k, etc...): ')
     return distance.lower() + '_'
 
+
 def get_date(filename):
     date = input('What date? (e.g. 2017-02-18): ')
     return date.lower() + '_'
+
 
 def fix_header(header):
     field_alterations = {
@@ -93,6 +102,7 @@ def fix_header(header):
         if header.lower() in field_alterations[field_type]:
             return field_type
     return header
+
 
 def remove_useless_columns(data):
     required_skier_fields = ['first', 'last', 'time']
@@ -122,11 +132,8 @@ def get_useless_header_indexes(data, all_accepted_fields):
             bad_header_indexes.append(i)
     return bad_header_indexes
 
+
 def main():
-    # ask for filename
-    # Must make filename have location, raceDate, gender, skill, distance to best possible
-    # Make headers match first, last, team, start, finish, time, grade
-    # Split up file into Boys and Girls individual files
     filename = input('Please enter a filename: ')
     data = get_file(filename)
     new_filename = get_new_filename(filename)
@@ -135,4 +142,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

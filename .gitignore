@@ -5,3 +5,4 @@ stdout.txt
 src/client/public/*
 *.pyc
 nordicNumbers/
+.idea

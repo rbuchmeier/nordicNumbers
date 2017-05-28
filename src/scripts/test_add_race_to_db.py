@@ -9,6 +9,7 @@ import unittest
 from mock import Mock
 import mock
 
+
 class AddRaceToDbTests(unittest.TestCase):
 
     def test_get_race_info(self):

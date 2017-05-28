@@ -12,8 +12,8 @@ import unittest
 from mock import Mock
 import mock
 
-class ValidateRaceTests(unittest.TestCase):
 
+class ValidateRaceTests(unittest.TestCase):
     def test_get_file(self):
         pass
 
@@ -63,8 +63,8 @@ class ValidateRaceTests(unittest.TestCase):
                      ['Ryan', 'Bucky', 1, '11:50'],
                      ['BrenN', 'Azure', 2, '9:00']]
         expected = [['first', 'last', 'time'],
-                     ['Ryan', 'Bucky', '11:50'],
-                     ['BrenN', 'Azure', '9:00']]
+                    ['Ryan', 'Bucky', '11:50'],
+                    ['BrenN', 'Azure', '9:00']]
         actual = remove_useless_columns(test_data)
         self.assertEqual(expected, actual)
 
@@ -73,8 +73,8 @@ class ValidateRaceTests(unittest.TestCase):
                      ['Ryan', 'Bucky', 1, '11:50', 'Boys'],
                      ['BrenN', 'Azure', 2, '9:00', 'M']]
         expected = [['first', 'last', 'time', 'gender'],
-                     ['Ryan', 'Bucky', '11:50', 'Boys'],
-                     ['BrenN', 'Azure', '9:00', 'M']]
+                    ['Ryan', 'Bucky', '11:50', 'Boys'],
+                    ['BrenN', 'Azure', '9:00', 'M']]
         actual = remove_useless_columns(test_data)
         self.assertEqual(expected, actual)
 
@@ -88,7 +88,7 @@ class ValidateRaceTests(unittest.TestCase):
         actual = fix_header(header)
         self.assertEqual(expected, actual)
         header = 'FooBar 01G5'
-        expected = 'FooBar 01G5' 
+        expected = 'FooBar 01G5'
         actual = fix_header(header)
         self.assertEqual(expected, actual)
 
@@ -97,11 +97,11 @@ class ValidateRaceTests(unittest.TestCase):
                      ['Ryan', 'Bucky', 1, '11:50', 'Boys'],
                      ['BrenN', 'Azure', 2, '9:00', 'M']]
         expected = [['first', 'last', 'time', 'gender'],
-                     ['Ryan', 'Bucky', '11:50', 'Boys'],
-                     ['BrenN', 'Azure', '9:00', 'M']]
+                    ['Ryan', 'Bucky', '11:50', 'Boys'],
+                    ['BrenN', 'Azure', '9:00', 'M']]
         actual = remove_useless_columns(test_data)
         self.assertEqual(expected, actual)
 
+
 if __name__ == '__main__':
     unittest.main()
-

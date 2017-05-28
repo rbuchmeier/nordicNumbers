@@ -6,15 +6,16 @@ import csv
 
 import pymongo
 
+
 def get_filename_details(filename):
     filename = filename.split('/')[-1]
     filename = filename.split('.')[0]
     return filename.split('_')
 
+
 def get_race_info(filename):
     details = get_filename_details(filename)
     race_details = {}
-    # Location
     for location in LOCATIONS:
         if location in details:
             race_details['location'] = location
@@ -25,6 +26,7 @@ def get_race_info(filename):
     race_details = get_details_for(race_details, 'skill', ['Skate', 'Classic'], details)
 
     return race_details
+
 
 def get_details_with_re(race_details, detail_type, regexp, details):
     dist_re = re.compile(regexp)
@@ -49,6 +51,7 @@ def get_skier_info(skier, headers):
         result[header] = skier[i]
     return result
 
+
 def write_race_to_db(race):
     # Should check to see if race already exists
     client = pymongo.MongoClient()
@@ -57,10 +60,6 @@ def write_race_to_db(race):
     
 
 def main():
-    # Parse data
-    ## Time should be converted to Int
-    ## First/Last names should be fixed where possible (user input?)
-    # Enter information into db
     filename = input('Please enter a filename: ')
     data = get_file(filename)
     race = get_race_info(filename)
