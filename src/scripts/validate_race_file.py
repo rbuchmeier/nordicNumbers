@@ -1,6 +1,7 @@
 import csv
 from utils import LOCATIONS
 from utils import get_file
+import re
 
 
 def write_validated_race(data, filename):
@@ -78,12 +79,22 @@ def get_skill(filename):
 
 
 def get_distance(filename):
-    distance = input('What distance? (5k, 10k, etc...): ')
+    regex = r'[0-9]{1,2}k'
+    match = re.search(regex, filename)
+    if not match:
+        distance = input('What distance? (5k, 10k, etc...): ')
+    else:
+        distance = match.group(0)
     return distance.lower() + '_'
 
 
 def get_date(filename):
-    date = input('What date? (e.g. 2017-02-18): ')
+    regex = r'[0-9]{4,4}-[0-9]{1,2}-[0-9]{1,2}'
+    match = re.search(regex, filename)
+    if not match:
+        date = input('What date? (e.g. 2017-02-18): ')
+    else:
+        date = match.group(0)
     return date.lower() + '_'
 
 

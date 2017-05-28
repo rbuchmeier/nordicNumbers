@@ -35,14 +35,12 @@ class ValidateRaceTests(unittest.TestCase):
         actual = get_skill(test_filename)
         self.assertEqual(expected, actual)
 
-    @unittest.skip('finish function, then unskip')
     def test_get_distance(self):
         test_filename = 'Junior High 4k Race'
         expected = '4k_'
         actual = get_distance(test_filename)
         self.assertEqual(expected, actual)
 
-    @unittest.skip('finish function, then unskip')
     def test_get_date(self):
         test_filename = 'MS Lander 2017-02-18'
         expected = '2017-02-18_'
