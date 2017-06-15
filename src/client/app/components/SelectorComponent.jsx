@@ -7,6 +7,7 @@ class SelectorComponent extends React.Component {
         this.serverRequest = axios.get('http://192.81.218.23:3000/api/races/' + race_id)
         .then(function(result) {
             _this.props.changeRace({type:'change_race',payload:result.data});
+            _this.props.changeRace({type: 'sort_time'});
         });
     }
     render() {
