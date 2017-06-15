@@ -47,13 +47,13 @@ We are developers, making dreams come true is what we do. Here are some of ours:
 - `git clone https://github.com/mariomarine/nordicNumbers`
 ## Node (React)
 - Make sure npm and node are up to date (my current method for doing so below)
--- `node -v` or `npm -v`. Expected versions are npm 5 and node 8
--- `sudo npm cache clean -f`
--- `sudo npm install -g n`
--- `sudo n stable`
--- (Note: You may have to restart your terminal)
+  - `node -v` or `npm -v`. Expected versions are npm 5 and node 8
+  - `sudo npm cache clean -f`
+  - `sudo npm install -g n`
+  - `sudo n stable`
+  - (Note: You may have to restart your terminal)
 - Run `npm install`
 - run `npm run build` to make sure everything installed right
--- A potential problem here is that the public folder does not exist. In which case: `mkdir src/client/public`
+  - A potential problem here is that the public folder does not exist. In which case: `mkdir src/client/public`
 ## Scripts (Python)
 - Get virtualenv up and running with python 3
