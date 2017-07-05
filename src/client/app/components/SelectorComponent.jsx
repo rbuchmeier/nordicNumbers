@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SelectorRadioButton from './SelectorRadioButton.jsx';
 
 class SelectorComponent extends React.Component {
     handleChange(race_id) {
@@ -18,11 +19,7 @@ class SelectorComponent extends React.Component {
                     <form>
                     {_this.props.races.map(function(race) {
                             return (
-                                    <div key={race._id}>
-                                    <label>
-                                    <input type="radio" name="races" onClick={() => _this.handleChange(race._id)}/>{race.raceDate} {race.location} {race.gender} {race.skill} {race.distance}
-                                    </label>
-                                    </div>
+                                <SelectorRadioButton race={race} handleChange={_this.handleChange} />
                                    )
                             })}
                     </form>
