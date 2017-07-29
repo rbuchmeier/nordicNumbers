@@ -27,14 +27,14 @@ We are developers, making dreams come true is what we do. Here are some of ours:
 - React (Framework(/library))
 - Redux (or some State-manager)
 - d3.js (eventually, for charts)
-- Bootstrap (*good* css is hard...)
+- Bootstrap (*good* css is hard..., but we are probably changing to css-grid soon)
 - Scss (not necessary, may be fun)
 
 ### Back End:
 - Node (Base platform, currently the webserver as well (which could be gone by nginx...but we probably don't need to get that fancy until we get bigger)
 - MongoDB (Persistant Storage)
 - Webpack (bundling)
-- Mocha/Jasmine (Testing)
+- Jest/Enzyme (Testing)
 - Express (Routing)
 
 ### DevOps/DataScience
