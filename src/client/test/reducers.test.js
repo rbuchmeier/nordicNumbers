@@ -67,3 +67,25 @@ var sort_races_tester = function () {
     });
 };
 sort_races_tester();
+
+var percent_back_tester = function () {
+    var add_comp_action = {
+        type: 'add_computations'
+    }
+    var given_state = {
+        race: {
+                  racers: [{time: 1000}, {time: 1100}, {time: 1200}]
+        },
+        races: {}
+    }
+    var expected_state = {
+        race: {
+                  racers: [{time: 1000, percent_back: 0}, {time: 1100, percent_back: 10}, {time: 1200, percent_back: 20}]
+        },
+        races: {}
+    }
+    test('Percent Back Reducer Test', () => {
+        expect(race_reducer(given_state, add_comp_action)).toEqual(expected_state);
+    });
+};
+percent_back_tester();
