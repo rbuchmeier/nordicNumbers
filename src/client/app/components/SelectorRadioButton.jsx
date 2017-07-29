@@ -2,14 +2,14 @@ import React from 'react';
 
 class SelectorRadioButton extends React.Component {
     render () {
-        var race = this.props.race;
-        var handleChange = this.props.handleChange
+        var _this = this;
+        var race = _this.props.race;
         return (
             <label>
-                <input type="radio" name="races" onClick={() => handleChange(race._id)}/>{race.raceDate} {race.location} {race.gender} {race.skill} {race.distance}
+                <input type="radio" name="races" onClick={() => _this.props.handleChange(race._id)}/>{race.raceDate} {race.location} {race.gender} {race.skill} {race.distance}
             </label>
        )
     }
 }
 
-export default SelectorRadioButton
+export default SelectorRadioButton;
