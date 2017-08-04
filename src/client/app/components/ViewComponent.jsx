@@ -1,8 +1,8 @@
 import React from 'react';
 var moment = require('moment');
 
-var ViewComponent = React.createClass({
-  render: function() {
+class ViewComponent extends React.Component{
+  render() {
     return (
       <div className='rounded col-md-9' id='view-component'>
         <h3>Race View</h3>
@@ -29,6 +29,6 @@ var ViewComponent = React.createClass({
       </div>
     );
   }
-});
+};
 
 export default ViewComponent;
