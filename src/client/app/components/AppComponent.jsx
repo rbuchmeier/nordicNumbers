@@ -4,8 +4,8 @@ import FilterComponent from './FilterComponent.jsx'
 import SelectorComponent from './SelectorComponent.jsx'
 import ViewComponent from './ViewComponent.jsx'
 
-var App = React.createClass({
-  componentDidMount: function() {
+class App extends React.Component{
+  componentDidMount() {
     var _this = this;
     _this.serverRequest = axios.get('http://192.81.218.23:3000/api/races')
         .then(function(result) {
@@ -14,11 +14,11 @@ var App = React.createClass({
             _this.props.changeRace({type: 'sort_time'});
             _this.props.changeRace({type: 'add_computations'});
         })
-  },
-  componentWillUnmount: function() {
+  }
+  componentWillUnmount() {
     this.serverRequest.abort();
-  },
-  render: function() {
+  }
+  render() {
     var _this = this;
     return (
     <div>
@@ -34,6 +34,6 @@ var App = React.createClass({
     </div>
     );
   }
-})
+}
 
 export default App;
