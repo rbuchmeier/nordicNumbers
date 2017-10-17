@@ -80,7 +80,7 @@ var percent_back_tester = function () {
     }
     var expected_state = {
         race: {
-                  racers: [{time: 1000, percent_back: 0}, {time: 1100, percent_back: 10}, {time: 1200, percent_back: 20}]
+                  racers: [{time: 1000, percent_back: "0.00"}, {time: 1100, percent_back: "10.00"}, {time: 1200, percent_back: "20.00"}]
         },
         races: {}
     }
