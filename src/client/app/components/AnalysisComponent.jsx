@@ -7,6 +7,9 @@ class AnalysisComponent extends React.Component {
         return (
             <div id='analysis-component' className="col-md-12">
                 <h3>Analysis</h3>
+                <p>{_this.props.data.race}</p>
+                <p>{_this.props.data.person}</p>
+                <p>{_this.props.data.result}</p>
             </div>
         );
     }

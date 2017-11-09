@@ -6,6 +6,7 @@ import AnalysisComponent from './AnalysisComponent.jsx'
 
 class SkiersComponent extends React.Component{
     componentDidMount() {
+        var _this = this;
         /*
         var _this = this;
         _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races')
@@ -19,6 +20,7 @@ class SkiersComponent extends React.Component{
             })
         })
         */
+        _this.props.loadData({type: 'load_data', race: 'blah', person: '123', result: 100});
     }
     componentWillUnmount() {
         /*
@@ -31,11 +33,11 @@ class SkiersComponent extends React.Component{
             <div>
                 <div className='jumbotron'>
                     <div className="row">
-                        <SelectorComponent races={_this.props.races} changeRace={_this.props.changeRace} />
                         <PeopleComponent />
+                        <SelectorComponent races={_this.props.races} changeRace={_this.props.changeRace} />
                     </div>
                     <div className="row">
-                        <AnalysisComponent />
+                        <AnalysisComponent data={_this.props.skiers} />
                     </div>
                 </div>
             </div>
