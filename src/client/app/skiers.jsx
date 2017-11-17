@@ -4,21 +4,22 @@ import {render} from 'react-dom';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import SkiersComponent from './components/SkiersComponent.jsx';
-import { race_reducer } from './reducers/race_reducer.js';
+import { skier_reducer } from './reducers/skier_reducer.js';
 
-const store = createStore(race_reducer);
+const store = createStore(skier_reducer);
 
 function mapStateToProps(state) {
     return {
-        race: state.race,
-        races: state.races
+            skiers: state.skiers,
+            race: state.race,
+            races: state.races
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         changeRace: (change_race_action) => dispatch(change_race_action),
-        loadRaces: (load_races_action) => dispatch(load_races_action)
+        loadData: (load_data_action) => dispatch(load_data_action)
     }
 }
 

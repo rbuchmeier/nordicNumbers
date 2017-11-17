@@ -1,18 +1,20 @@
-#view-component, #selector-component, #filter-component {
+#view-component, #selector-component, #filter-component, #people-component, #analysis-component {
     //background-color: #79CAEA;
     background-color: #D4D4D4;
     border-style: solid;
+    border-width: 1px;
     border-color: #4684A9;
-    border-radius: 25px;
+    //border-radius: 25px;
     margin: 0px;
     padding: 10px;
 }
-#app div.jumbotron {
+#app div.jumbotron, #skiers div.jumbotron {
     background-color: #79CAEA;
     //background-color: #D4D4D4;
     border-style: solid;
+    border-width: 1px;
     border-color: #4684A9;
-    border-radius: 25px;
+    //border-radius: 25px;
     margin: 25px;
     padding: 25px;
 }

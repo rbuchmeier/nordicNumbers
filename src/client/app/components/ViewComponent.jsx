@@ -5,13 +5,13 @@ class ViewComponent extends React.Component{
   render() {
     return (
       <div className='rounded col-md-9' id='view-component'>
-        <h3>Race View</h3>
-      <div className="row" key="label"><em>
-            <div className="col-md-2">Place</div>
-            <div className="col-md-3">Name</div>
-            <div className="col-md-1">Grade</div>
-            <div className="col-md-2">Time</div>
-            <div className="col-md-2">Team</div>
+        <h3>race view</h3>
+      <div classname="row" key="label"><em>
+            <div classname="col-md-2">place</div>
+            <div classname="col-md-3">name</div>
+            <div classname="col-md-1">grade</div>
+            <div classname="col-md-2">time</div>
+            <div classname="col-md-2">team</div>
             <div className="col-md-2">% Back</div>
       </em></div>
             {this.props.race.racers.map(function(racer, i) {
