@@ -4,10 +4,12 @@ import axios from 'axios';
 class FilterComponent extends React.Component {
   handleChange(type, value) {
         var _this = this;
-        this.serverRequest = axios.get('http://192.81.218.23:3000/api/races/?' + type + '=' + value)
+        this.serverRequest = axios.get('http://192.81.218.23:8000/api/races/?' + type + '=' + value)
         .then(function(result) {
             _this.props.loadRaces({type: 'load_races', payload: result.data});
-        });
+        }).catch(error => {
+	    console.log('Failed to fetch races from endpoint');
+	});
     }
   render() {
     var _this = this;
@@ -25,10 +27,10 @@ class FilterComponent extends React.Component {
 	</div>
 	<div className="col-md-4">
 		Skill:&nbsp;
-		<select name="skill" onChange={(e) => _this.handleChange('skill', e.target.value)}>
+		<select name="skill" onChange={(e) => _this.handleChange('class', e.target.value)}>
 			<option value=""></option>
-			<option value="Skate">Skate</option>
-			<option value="Classic">Classic</option>
+			<option value="skate">Skate</option>
+			<option value="classic">Classic</option>
 		</select>
 	</div>
 	<div className="col-md-4">

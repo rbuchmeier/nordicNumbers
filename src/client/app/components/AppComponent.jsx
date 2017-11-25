@@ -11,7 +11,7 @@ class App extends React.Component{
     .then(function(result) {
         _this.props.loadRaces({type: 'load_races', payload: result.data});
         _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races/' + result.data[0].id)
-        .then(function(single_result) {
+	.then(function(single_result) {
             _this.props.changeRace({type: 'change_race', payload: single_result.data[0]});
             _this.props.changeRace({type: 'sort_time'});
             _this.props.changeRace({type: 'add_computations'});
@@ -40,3 +40,4 @@ class App extends React.Component{
 }
 
 export default App;
+
