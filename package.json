@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node app.js &",
+    "start": "fuser -k 3000/tcp && node app.js &",
     "build": "webpack --config webpack.config.js"
   },
   "author": "",

@@ -8,7 +8,7 @@ class FilterComponent extends React.Component {
         .then(function(result) {
             _this.props.loadRaces({type: 'load_races', payload: result.data});
         }).catch(error => {
-	    console.log('Failed to fetch races from endpoint');
+	    	console.log('Failed to fetch races from endpoint');
 	});
     }
   render() {

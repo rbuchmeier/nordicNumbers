@@ -20,7 +20,7 @@ class ViewComponent extends React.Component{
                       <div className="col-md-2"> {i+1}</div>
                       <div className="col-md-1">{racer.location}</div>
                       <div className="col-md-2"> {racer.first} {racers.last}</div>
-		                  <div className="col-md-1">{racer.grade}</div>
+		      <div className="col-md-1">{racer.grade}</div>
                       <div className="col-md-2">{moment('2017-01-01').startOf('day').seconds(racer.time).format('H:mm:ss')}</div>
                       <div className="col-md-2">{racer.level}</div>
                       <div className="col-md-2">{racer.percent_back} %</div>

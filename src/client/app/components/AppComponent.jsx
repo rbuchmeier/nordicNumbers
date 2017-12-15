@@ -7,10 +7,10 @@ import ViewComponent from './ViewComponent.jsx'
 class App extends React.Component{
   componentDidMount() {
     var _this = this;
-    _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races')
+    _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races/')
     .then(function(result) {
         _this.props.loadRaces({type: 'load_races', payload: result.data});
-        _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races/' + result.data[0].id)
+        _this.serverRequest = axios.get('http://192.81.218.23:8000/api/races/?raceid=' + result.data[0].id)
 	.then(function(single_result) {
             _this.props.changeRace({type: 'change_race', payload: single_result.data[0]});
             _this.props.changeRace({type: 'sort_time'});
@@ -27,11 +27,11 @@ class App extends React.Component{
     <div>
       <div className='jumbotron'>
 	 <div className="row">
-        <FilterComponent loadRaces={_this.props.loadRaces}/>
+           <FilterComponent loadRaces={_this.props.loadRaces}/>
 	 </div>
 	 <div className="row">
-        <SelectorComponent races={_this.props.races} changeRace={_this.props.changeRace}/>
-        <ViewComponent race={_this.props.race} />
+           <SelectorComponent races={_this.props.races} changeRace={_this.props.changeRace}/>
+           <ViewComponent race={_this.props.race} />
 	 </div>
       </div>
     </div>
