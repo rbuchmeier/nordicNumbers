@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true // Model tableName will be the same as the model name
     });
 
-    return raceModel
+    // return raceModel
 
 /*
     // Here for documentation
