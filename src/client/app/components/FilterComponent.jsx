@@ -21,6 +21,7 @@ class FilterComponent extends React.Component {
 		Gender:&nbsp;
 		<select name="gender" onChange={(e) => _this.handleChange('gender', e.target.value)}>
 			<option value=""></option>
+			<option value="All" selected>All</option>
 			<option value="Boys">Boys</option>
 			<option value="Girls">Girls</option>
 		</select>
@@ -29,6 +30,7 @@ class FilterComponent extends React.Component {
 		Skill:&nbsp;
 		<select name="skill" onChange={(e) => _this.handleChange('class', e.target.value)}>
 			<option value=""></option>
+			<option value="All" selected>All</option>
 			<option value="skate">Skate</option>
 			<option value="classic">Classic</option>
 		</select>
@@ -36,6 +38,7 @@ class FilterComponent extends React.Component {
 	<div className="col-md-4">
 		Season:&nbsp;
 		<select name="season" disabled>
+			<option value="All" selected>All</option>
 			<option value="16_17">16/17</option>
 			<option value="15_16">15/16</option>
 		</select>
