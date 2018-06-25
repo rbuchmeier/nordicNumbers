@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import SelectorRadioButton from './SelectorRadioButton.jsx';
+import SelectorCheckbox from './SelectorCheckbox.jsx';
 
 class SelectorComponent extends React.Component {
     handleChange(race_id) {
@@ -21,7 +21,7 @@ class SelectorComponent extends React.Component {
                     <form>
                     {this.props.races.map(function(race) {
                             return (
-                                <SelectorRadioButton races={race} handleChange={_this.handleChange.bind(_this)} key={race.id}/>
+                                <SelectorCheckbox races={race} handleChange={_this.handleChange.bind(_this)} key={race.id}/>
                                    )
                             })}
                     </form>
